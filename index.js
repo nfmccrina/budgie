@@ -1,29 +1,27 @@
 require('dotenv').config();
 var log4js = require('log4js');
 var mongoose = require('mongoose');
-var UserController = require('./controllers/userController');
+var express = require('express');
+var app = express();
+var apiRouter = require('./config/routing/apiRoutes');
 
 log4js.configure('log.config');
 
-function runApp () {
-    var userController = new UserController();
-    userController.getUsers();
-}
+var logger = log4js.getLogger('debugLog');
+
+app.use('/api', apiRouter);
 
 function buildConnectionURL () {
     var logger = log4js.getLogger('debugLog');
     
-    var result = 'mongodb://' + process.env.MONGODB_HOST + ':' + process.env.MONGODB_PORT + '/' + process.env.MONGODB_DATABASE;
-    
+    var result = 'mongodb://' + process.env.MONGODB_USERNAME + ':' + process.env.MONGODB_PASSWORD + '@' + process.env.MONGODB_HOST + ':' + process.env.MONGODB_PORT + '/' + process.env.MONGODB_DATABASE;
     logger.debug('mongodb connection URL is "' + result + '"');
-    //return 'mongodb://' + process.env.MONGODB_USERNAME + ':' + process.env.MONGODB_PASSWORD + '@' + process.env.MONGODB_HOST + ':' + process.env.MONGODB_PORT + '/' + process.env.MONGODB_DATABASE;
     return result;
 }
 
-mongoose.connect(buildConnectionURL(), {})
-    .then((conn) => runApp())
-    .catch((err) => {
-        var logger = log4js.getLogger('debugLog');
-        
-        logger.debug('mongoose.connect - ' + err.toString());
-    });
+function runApp () {
+    mongoose.connect(buildConnectionURL(), {})
+        .then((conn) => app.listen(3000));
+}
+
+runApp();

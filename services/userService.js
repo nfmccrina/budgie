@@ -4,11 +4,15 @@ var log4js = require('log4js');
 
 function UserService () {};
 
-UserService.prototype.addUser = function (name) {
-    var newUser = new User({ name: name });
+UserService.prototype.addUser = function (name, pwd) {
+    var newUser = new User({
+        name: name,
+        saltedHashedPassword: pwd,
+        token: '',
+        tokenExpiration: new Date('1900-01-01')
+    });
     
-    newUser.save()
-        .catch((err) => console.log(err));
+    return newUser.save();
 };
 
 UserService.prototype.getAll = function () {

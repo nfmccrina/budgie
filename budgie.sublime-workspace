@@ -7,14 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -52,16 +44,26 @@
 	],
 	"file_history":
 	[
+		"/home/nfm/src/rtl8812au_rtl8821au/.gitignore",
+		"/home/nfm/src/rtl8812au_rtl8821au/README.md",
+		"/usr/src/kernels/4.14.11-300.fc27.x86_64/include/net/cfg80211.h",
+		"/home/nfm/src/rtl8812au_rtl8821au/os_dep/linux/ioctl_cfg80211.h",
+		"/home/nfm/src/rtl8812au_rtl8821au/os_dep/linux/ioctl_cfg80211.c",
+		"/home/nfm/src/rtl8812au_rtl8821au/include/osdep_service.h",
+		"/home/nfm/src/rtl8812au_rtl8821au/dkms.conf",
+		"/home/nfm/Downloads/linux-4.11-rc8/include/net/cfg80211.h",
+		"/usr/include/linux/nl80211.h"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 101.0,
 		"where_history":
 		[
+			"/home/nfm/src/rtl8812au_rtl8821au"
 		]
 	},
 	"find_state":
@@ -69,6 +71,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"u32 *",
+			"cfg80211_ops",
+			"cfg80211_ops rtw_cfg80211_ops",
+			"cfg80211_rtw_add_virtual_intf",
+			"rtw_cfg80211_add_monitor_if",
+			"cfg80211_rtw_add_virtual_intf",
+			"cfg80211_rtw_change_iface",
+			"wiphy",
+			"ieee80211_get_channel",
+			"roamed",
+			"cfg80211_roamed",
+			"include",
+			"cfg80211_roamed",
+			"allow_signal"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -86,43 +102,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -159,7 +146,7 @@
 	"project": "budgie.sublime-project",
 	"replace":
 	{
-		"height": 0.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -197,7 +184,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 332.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
