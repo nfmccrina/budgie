@@ -21,7 +21,8 @@ function buildConnectionURL () {
 
 function runApp () {
     mongoose.connect(buildConnectionURL(), {})
-        .then((conn) => app.listen(3000));
+        .then((conn) => app.listen(3000))
+        .then(() => console.log('Listening on port 3000...'));
 }
 
 runApp();

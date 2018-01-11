@@ -10,7 +10,7 @@ function UserController () {
     this.userService = new UserService();
 }
 
-UserController.prototype.getUsers = function () {  
+UserController.prototype.getUser = function () {  
     return this.userService
         .getAll()
         .then((users) => {
@@ -23,13 +23,8 @@ UserController.prototype.getUsers = function () {
         });
 };
 
-UserController.prototype.addUser = function (req, res) {
+UserController.prototype.addUser = function (name, pwd) {
     this.logger.debug('UserController.addUser invoked');
-
-    if (!req.body || !req.body.name || !req.body.pwd) {
-        this.logger.debug('invalid data: req.body = ' + util.inspect(req.body));
-        res.status(400).send('Bad Request');
-    }
 
     bcrypt.hash(req.body.pwd, saltRounds)
         .then((hash) => this.userService.addUser(req.body.name, hash))
