@@ -1,0 +1,5 @@
+[2018-01-13T16:35:39.525] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
+[2018-01-13T16:58:41.046] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
+[2018-01-13T18:23:46.206] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
+[2018-01-13T18:25:21.317] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
+[2018-01-13T19:53:28.731] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
