@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<div class="navbar-item" v-else>
-					<p>Hello there</p>
+					<p>Hello {{ userName }}</p>
 				</div>
 			</div>
 		</div>
@@ -41,6 +41,9 @@
 		computed: {
 			isLoggedIn () {
 				return this.$store.state.isLoggedIn
+			},
+			userName () {
+				return this.$store.state.user.name
 			}
 		},
 		methods: {

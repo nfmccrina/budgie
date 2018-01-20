@@ -22712,29 +22712,14 @@ var _budgieutil = require('../util/budgieutil');
 
 var _budgieutil2 = _interopRequireDefault(_budgieutil);
 
-var _action_manager = require('../store/action_manager');
-
-var _action_manager2 = _interopRequireDefault(_action_manager);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
 	mounted: function mounted() {
-		var _this = this;
-
-		var util = new _budgieutil2.default();
-
-		var accessTokenString = util.extractHashParam(this.$route.params, 'access_token');
-
+		var accessTokenString = _budgieutil2.default.extractHashParam(this.$route.params, 'access_token');
 
 		if (accessTokenString) {
-			_action_manager2.default.setStore(this.$store);
-			_action_manager2.default.dispatch('validateToken', [accessTokenString]).then(function (valid) {
-				if (valid) {
-					_this.$store.commit('updateUserToken', accessTokenString);
-					_this.$store.commit('updateLoggedIn', true);
-				}
-			});
+			this.$store.dispatch('validateToken', accessTokenString);
 		}
 	}
 };
@@ -22754,11 +22739,42 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-f9cc4d64", __vue__options__)
   }
 })()}
-},{"../store/action_manager":98,"../util/budgieutil":100,"vue":87,"vue-hot-reload-api":85}],92:[function(require,module,exports){
+},{"../util/budgieutil":100,"vue":87,"vue-hot-reload-api":85}],92:[function(require,module,exports){
+;(function(){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	data: function data() {
+		return {
+			newCategoryName: ''
+		};
+	},
+
+	methods: {
+		addButton_onClick: function addButton_onClick(e) {
+			this.$store.commit('addCategory', this.buildCategoryFromForm());
+			this.clearForm();
+			return false;
+		},
+		buildCategoryFromForm: function buildCategoryFromForm() {
+			return {
+				name: this.newCategoryName
+			};
+		},
+		clearForm: function clearForm() {
+			this.newCategoryName = '';
+		}
+	}
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
-__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('h1',{staticClass:"title"},[_vm._v("Add New Category")]),_vm._v(" "),_c('form',[_c('div',{staticClass:"field"},[_c('label',{staticClass:"label"},[_vm._v("Category Name")]),_vm._v(" "),_c('div',{staticClass:"control"},[_c('input',{staticClass:"input",attrs:{"type":"text"}})])]),_vm._v(" "),_c('div',{staticClass:"field"},[_c('div',{staticClass:"control"},[_c('button',{staticClass:"is-primary"},[_vm._v("Add")])])])])])}]
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('h1',{staticClass:"title"},[_vm._v("Add New Category")]),_vm._v(" "),_c('form',[_c('div',{staticClass:"field"},[_c('label',{staticClass:"label"},[_vm._v("Category Name")]),_vm._v(" "),_c('div',{staticClass:"control"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.newCategoryName),expression:"newCategoryName"}],staticClass:"input",attrs:{"type":"text"},domProps:{"value":(_vm.newCategoryName)},on:{"input":function($event){if($event.target.composing){ return; }_vm.newCategoryName=$event.target.value}}})])]),_vm._v(" "),_c('div',{staticClass:"field"},[_c('div',{staticClass:"control"},[_c('button',{staticClass:"is-primary",on:{"click":_vm.addButton_onClick}},[_vm._v("Add")])])])])])}
+__vue__options__.staticRenderFns = []
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -22776,23 +22792,59 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.default = {
+	props: ['item']
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('p',[_vm._v(_vm._s(_vm.item.name))])])}
+__vue__options__.staticRenderFns = []
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c20c0d7c", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-c20c0d7c", __vue__options__)
+  }
+})()}
+},{"vue":87,"vue-hot-reload-api":85}],94:[function(require,module,exports){
+;(function(){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
 var _add_category_form = require('./add_category_form.vue');
 
 var _add_category_form2 = _interopRequireDefault(_add_category_form);
 
+var _category_item = require('./category_item.vue');
+
+var _category_item2 = _interopRequireDefault(_category_item);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
+	computed: {
+		categories: function categories() {
+			return this.$store.state.user.categories;
+		}
+	},
 	components: {
-		AddCategoryForm: _add_category_form2.default
+		AddCategoryForm: _add_category_form2.default,
+		CategoryItem: _category_item2.default
 	}
 };
 })()
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('AddCategoryForm')],1)}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('h1',{staticClass:"title"},[_vm._v("Your Categories")]),_vm._v(" "),_c('ul',_vm._l((_vm.categories),function(c){return _c('li',[_c('CategoryItem',{attrs:{"item":c}})],1)})),_vm._v(" "),_c('AddCategoryForm')],1)}
 __vue__options__.staticRenderFns = []
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -22804,7 +22856,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-e7f67a84", __vue__options__)
   }
 })()}
-},{"./add_category_form.vue":92,"vue":87,"vue-hot-reload-api":85}],94:[function(require,module,exports){
+},{"./add_category_form.vue":92,"./category_item.vue":93,"vue":87,"vue-hot-reload-api":85}],95:[function(require,module,exports){
 ;(function(){
 "use strict";
 })()
@@ -22823,7 +22875,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-6bda1b91", __vue__options__)
   }
 })()}
-},{"vue":87,"vue-hot-reload-api":85}],95:[function(require,module,exports){
+},{"vue":87,"vue-hot-reload-api":85}],96:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -22841,6 +22893,9 @@ exports.default = {
 	computed: {
 		isLoggedIn: function isLoggedIn() {
 			return this.$store.state.isLoggedIn;
+		},
+		userName: function userName() {
+			return this.$store.state.user.name;
 		}
 	},
 	methods: {
@@ -22853,7 +22908,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('nav',{staticClass:"navbar",attrs:{"role":"navigation","arial-label":"main navigation"}},[_c('div',{staticClass:"navbar-brand"},[_c('router-link',{staticClass:"navbar-item",attrs:{"to":"/"}},[_c('img',{attrs:{"src":"media/logo.png"}})]),_vm._v(" "),_vm._m(0)],1),_vm._v(" "),_c('div',{staticClass:"navbar-menu"},[_c('div',{staticClass:"navbar-start"},[_c('router-link',{staticClass:"navbar-item",attrs:{"to":"/"}},[_vm._v("Home")]),_vm._v(" "),_c('router-link',{staticClass:"navbar-item",attrs:{"to":"/categories"}},[_vm._v("Categories")])],1),_vm._v(" "),_c('div',{staticClass:"navbar-end"},[(!_vm.isLoggedIn)?_c('div',{staticClass:"navbar-item"},[_c('div',{staticClass:"field"},[_c('p',{staticClass:"control"},[_c('a',{staticClass:"button",on:{"click":_vm.loginButton_onClick}},[_c('span',[_vm._v("Login")])])])])]):_c('div',{staticClass:"navbar-item"},[_c('p',[_vm._v("Hello there")])])])])])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('nav',{staticClass:"navbar",attrs:{"role":"navigation","arial-label":"main navigation"}},[_c('div',{staticClass:"navbar-brand"},[_c('router-link',{staticClass:"navbar-item",attrs:{"to":"/"}},[_c('img',{attrs:{"src":"media/logo.png"}})]),_vm._v(" "),_vm._m(0)],1),_vm._v(" "),_c('div',{staticClass:"navbar-menu"},[_c('div',{staticClass:"navbar-start"},[_c('router-link',{staticClass:"navbar-item",attrs:{"to":"/"}},[_vm._v("Home")]),_vm._v(" "),_c('router-link',{staticClass:"navbar-item",attrs:{"to":"/categories"}},[_vm._v("Categories")])],1),_vm._v(" "),_c('div',{staticClass:"navbar-end"},[(!_vm.isLoggedIn)?_c('div',{staticClass:"navbar-item"},[_c('div',{staticClass:"field"},[_c('p',{staticClass:"control"},[_c('a',{staticClass:"button",on:{"click":_vm.loginButton_onClick}},[_c('span',[_vm._v("Login")])])])])]):_c('div',{staticClass:"navbar-item"},[_c('p',[_vm._v("Hello "+_vm._s(_vm.userName))])])])])])}
 __vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{staticClass:"button navbar-burger"},[_c('span'),_vm._v(" "),_c('span'),_vm._v(" "),_c('span')])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -22865,7 +22920,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-1ebb0d73", __vue__options__)
   }
 })()}
-},{"../auth/authService":90,"vue":87,"vue-hot-reload-api":85}],96:[function(require,module,exports){
+},{"../auth/authService":90,"vue":87,"vue-hot-reload-api":85}],97:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -22900,7 +22955,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-5f3f999c", __vue__options__)
   }
 })()}
-},{"./navbar.vue":95,"vue":87,"vue-hot-reload-api":85}],97:[function(require,module,exports){
+},{"./navbar.vue":96,"vue":87,"vue-hot-reload-api":85}],98:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -22961,54 +23016,7 @@ new _vue2.default({
 	store: _store2.default
 });
 
-},{"./components/app.vue":91,"./components/category_page/category_page.vue":93,"./components/homepage.vue":94,"./components/page.vue":96,"./store":99,"vue":87,"vue-router":86}],98:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var ActionManager = function () {
-	function ActionManager() {
-		_classCallCheck(this, ActionManager);
-
-		this.store = {};
-	}
-
-	_createClass(ActionManager, [{
-		key: 'setStore',
-		value: function setStore(s) {
-			this.store = s;
-		}
-	}, {
-		key: 'dispatch',
-		value: function dispatch(actionName, params) {
-			var _this = this;
-
-			return this.store.dispatch.apply(this.store, [actionName].concat(params)).catch(function (err) {
-				if (err && err.response) {
-					if (err.response.status === 401 || err.response.status === 403) {
-						_this.store.commit('updateLoggedIn', false);
-					}
-				}
-
-				return null;
-			});
-		}
-	}]);
-
-	return ActionManager;
-}();
-
-var actionManager = new ActionManager();
-
-exports.default = actionManager;
-
-},{}],99:[function(require,module,exports){
+},{"./components/app.vue":91,"./components/category_page/category_page.vue":94,"./components/homepage.vue":95,"./components/page.vue":97,"./store":99,"vue":87,"vue-router":86}],99:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -23023,9 +23031,9 @@ var _vuex = require('vuex');
 
 var _vuex2 = _interopRequireDefault(_vuex);
 
-var _axios = require('axios');
+var _budgieutil = require('../util/budgieutil');
 
-var _axios2 = _interopRequireDefault(_axios);
+var _budgieutil2 = _interopRequireDefault(_budgieutil);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23035,7 +23043,11 @@ exports.default = new _vuex2.default.Store({
 	state: {
 		userToken: '',
 		isLoggedIn: false,
-		user: {}
+		user: {
+			name: '',
+			id: '',
+			categories: []
+		}
 	},
 	mutations: {
 		/*setAppName (state, name) {
@@ -23055,94 +23067,87 @@ exports.default = new _vuex2.default.Store({
 		},
 		updateLoggedIn: function updateLoggedIn(state, value) {
 			state.isLoggedIn = value;
+		},
+		addCategory: function addCategory(state, category) {
+			if (!state.user.categories) {
+				state.user.categories = [];
+			}
+
+			state.user.categories.push(category);
 		}
 	},
 	actions: {
-		/*getAppName (context) {
-  	axios.get('http://localhost:3000/api/user/name')
-  		.then((response) => {
-  			context.commit('setAppName', response.data.name)
-  		})
-  		.catch((err) => {
-  			context.commit('setAppName', '')
-  		})
-  },
-  loadCategoriesFromServer (context) {
-  	axios.get('http://localhost:3000/api/user/categories')
-  		.then((response) => {
-  			context.commit('updateCategories', response.data.categories)
-  		})
-  },
-  saveCategoriesToServer (context) {}*/
+		addCategory: function addCategory(context, category) {
+			context.commit('addCategory', category);
+
+			return _budgieutil2.default.ajaxRequest('http://localhost:3000/api/user/category', context.state.userToken, 'post', category).catch(function (err) {
+				alert('error!');
+			});
+		},
 		loadUser: function loadUser(context) {
-			return _axios2.default.get('http://localhost:3000/api/user', {
-				headers: {
-					'Authorization': 'Bearer ' + context.state.userToken
-				}
-			}).then(function (response) {
-				context.commit('saveUser', response.data);
-				return response.data;
-			}).catch(function (err) {
-				//err.response.status
-				return {};
+			_budgieutil2.default.ajaxRequest('http://localhost:3000/api/user', context.state.userToken).then(function (response) {
+				return context.commit('saveUser', response.data);
 			});
 		},
 		validateToken: function validateToken(context, token) {
-			return _axios2.default.get('http://localhost:3000/api/token/validate', {
-				headers: {
-					'Authorization': 'Bearer ' + token
+			_budgieutil2.default.ajaxRequest('http://localhost:3000/api/token/validate', token).then(function (response) {
+				if (response.data.isValid) {
+					context.commit('updateUserToken', token);
+					context.commit('updateLoggedIn', true);
+					context.dispatch('loadUser');
 				}
-			}).then(function (response) {
-				return response.data.isValid;
 			});
 		}
 	}
 });
 
-},{"axios":35,"vue":87,"vuex":88}],100:[function(require,module,exports){
+},{"../util/budgieutil":100,"vue":87,"vuex":88}],100:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _axios = require('axios');
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _axios2 = _interopRequireDefault(_axios);
 
-var _class = function () {
-	function _class() {
-		_classCallCheck(this, _class);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var util = {
+	extractHashParam: function extractHashParam(params, paramName) {
+		var indexOfParam = function indexOfParam(el) {
+			return el.indexOf(paramName + '=');
+		};
+
+		var indexOfDelimiter = function indexOfDelimiter(el, startIndex) {
+			if (el.indexOf('&', startIndex) === -1) {
+				return el.length;
+			} else {
+				return el.indexOf('&', startIndex);
+			}
+		};
+
+		return Object.values(params).filter(function (el) {
+			return indexOfParam(el) !== -1;
+		}).map(function (el) {
+			return el.substring(indexOfParam(el) + paramName.length + 1, indexOfDelimiter(el, indexOfParam(el)));
+		}).find(function (el) {
+			return true;
+		});
+	},
+	ajaxRequest: function ajaxRequest(url, token, method, data) {
+		var config = {
+			url: url,
+			method: method || 'get',
+			data: data || {},
+			headers: { 'Authorization': 'Bearer ' + token }
+		};
+
+		return (0, _axios2.default)(config);
 	}
+};
 
-	_createClass(_class, [{
-		key: 'extractHashParam',
-		value: function extractHashParam(params, paramName) {
-			var indexOfParam = function indexOfParam(el) {
-				return el.indexOf(paramName + '=');
-			};
+exports.default = util;
 
-			var indexOfDelimiter = function indexOfDelimiter(el, startIndex) {
-				if (el.indexOf('&', startIndex) === -1) {
-					return el.length;
-				} else {
-					return el.indexOf('&', startIndex);
-				}
-			};
-
-			return Object.values(params).filter(function (el) {
-				return indexOfParam(el) !== -1;
-			}).map(function (el) {
-				return el.substring(indexOfParam(el) + paramName.length + 1, indexOfDelimiter(el, indexOfParam(el)));
-			}).find(function (el) {
-				return true;
-			});
-		}
-	}]);
-
-	return _class;
-}();
-
-exports.default = _class;
-
-},{}]},{},[97]);
+},{"axios":35}]},{},[98]);

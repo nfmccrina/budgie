@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+import util from '../util/budgieutil'
 
 Vue.use(Vuex)
 
@@ -8,7 +8,11 @@ export default new Vuex.Store({
 	state: {
 		userToken: '',
 		isLoggedIn: false,
-		user: {}
+		user: {
+			name: '',
+			id: '',
+			categories: []
+		}
 	},
 	mutations: {
 		/*setAppName (state, name) {
@@ -28,47 +32,38 @@ export default new Vuex.Store({
 		},
 		updateLoggedIn (state, value) {
 			state.isLoggedIn = value
+		},
+		addCategory (state, category) {
+			if (!state.user.categories) {
+				state.user.categories = []
+			}
+
+			state.user.categories.push(category)
 		}
 	},
 	actions: {
-		/*getAppName (context) {
-			axios.get('http://localhost:3000/api/user/name')
-				.then((response) => {
-					context.commit('setAppName', response.data.name)
-				})
+		addCategory (context, category) {
+			context.commit('addCategory', category)
+
+			return util.ajaxRequest('http://localhost:3000/api/user/category', context.state.userToken, 'post', category)
 				.catch((err) => {
-					context.commit('setAppName', '')
+					alert('error!')
 				})
 		},
-		loadCategoriesFromServer (context) {
-			axios.get('http://localhost:3000/api/user/categories')
-				.then((response) => {
-					context.commit('updateCategories', response.data.categories)
-				})
-		},
-		saveCategoriesToServer (context) {}*/
+
 		loadUser (context) {
-			return axios.get('http://localhost:3000/api/user', {
-				headers: {
-					'Authorization': 'Bearer ' + context.state.userToken
-				}
-			})
-			.then((response) => {
-				context.commit('saveUser', response.data)
-				return response.data
-			})
-			.catch((err) => {
-				//err.response.status
-				return {}
-			});
+			util.ajaxRequest('http://localhost:3000/api/user', context.state.userToken)
+				.then((response) => context.commit('saveUser', response.data))
 		},
 		validateToken(context, token) {
-			return axios.get('http://localhost:3000/api/token/validate', {
-				headers: {
-					'Authorization': 'Bearer ' + token
-				}
-			})
-			.then((response) => response.data.isValid)
+			util.ajaxRequest('http://localhost:3000/api/token/validate', token)
+				.then((response) => {
+					if (response.data.isValid) {
+						context.commit('updateUserToken', token)
+						context.commit('updateLoggedIn', true)
+						context.dispatch('loadUser')
+					}
+				})
 		}
 	}
 })

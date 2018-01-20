@@ -16,10 +16,8 @@ UserController.prototype.getUser = function (req, res) {
     if (!req.user || ! req.user.sub || !req.user['https://budgie.com/name']) {
         this.logger.debug('bad request: ' + util.inspect(req));
         res.status(400).end();
-    } else if (req.params.id !== this.parseUserId(req.user.sub)) {
-        res.status(403).end();
     }
-
+    
     this.userService.getUser(this.parseUserName(req.user['https://budgie.com/name']), this.parseUserId(req.user.sub))
         .then((createdUser) => res.json(createdUser))
         .catch((err) => {
