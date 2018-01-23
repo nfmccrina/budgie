@@ -26,6 +26,22 @@ UserController.prototype.getUser = function (req, res) {
         });
 };
 
+UserController.prototype.addCategory = function (req, res) {
+    this.logger.debug('UserController.addCategory invoked');
+
+    if (!req.user || ! req.user.sub || !req.user['https://budgie.com/name']) {
+        this.logger.debug('bad request: ' + util.inspect(req));
+        res.status(400).end();
+    }
+
+    return this.userService.addCategory(this.parseUserId(req.user.sub), req.body.category.name)
+        .then((obj) => res.json(obj))
+        .catch((err) => {
+            this.logger.debug('error: ' + util.inspect(err));
+            return res.status('500').end();
+        })
+};
+
 UserController.prototype.parseUserName = function (str) {
     return str.split('@')[0];
 };

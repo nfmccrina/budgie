@@ -2,7 +2,7 @@
 	<div>
 		<h1 class="title">Your Categories</h1>
 		<ul>
-			<li v-for="c in categories">
+			<li v-for="c in categories" v-bind:key="c.id">
 				<CategoryItem v-bind:item="c"></CategoryItem>
 			</li>
 		</ul>

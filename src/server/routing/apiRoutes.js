@@ -15,6 +15,10 @@ router.get('/user', function (req, res) {
 	userController.getUser(req, res);
 });
 
+router.post('/user/category', jsonParser, function (req, res) {
+	return userController.addCategory(req, res);
+})
+
 router.get('/token/validate', function (req, res) {
 	if (req.user) {
 		res.json({ isValid: true });

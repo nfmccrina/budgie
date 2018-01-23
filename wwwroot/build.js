@@ -103,7 +103,7 @@ DBConnection.prototype.changePassword = function(options, cb) {
 
 module.exports = DBConnection;
 
-},{"../helper/assert":4,"../helper/object":10,"../helper/response-handler":16,"url-join":84}],2:[function(require,module,exports){
+},{"../helper/assert":4,"../helper/object":10,"../helper/response-handler":16,"url-join":95}],2:[function(require,module,exports){
 var urljoin = require('url-join');
 
 var RequestBuilder = require('../helper/request-builder');
@@ -602,7 +602,7 @@ Authentication.prototype.getUserCountry = function(cb) {
 
 module.exports = Authentication;
 
-},{"../helper/assert":4,"../helper/object":10,"../helper/parameters-whitelist":11,"../helper/request-builder":15,"../helper/response-handler":16,"../helper/ssodata":17,"../helper/warn":23,"./db-connection":1,"./passwordless-authentication":3,"qs":74,"url-join":84}],3:[function(require,module,exports){
+},{"../helper/assert":4,"../helper/object":10,"../helper/parameters-whitelist":11,"../helper/request-builder":15,"../helper/response-handler":16,"../helper/ssodata":17,"../helper/warn":23,"./db-connection":1,"./passwordless-authentication":3,"qs":83,"url-join":95}],3:[function(require,module,exports){
 var urljoin = require('url-join');
 
 var objectHelper = require('../helper/object');
@@ -792,7 +792,7 @@ PasswordlessAuthentication.prototype.verify = function(options, cb) {
 
 module.exports = PasswordlessAuthentication;
 
-},{"../helper/assert":4,"../helper/object":10,"../helper/response-handler":16,"qs":74,"url-join":84}],4:[function(require,module,exports){
+},{"../helper/assert":4,"../helper/object":10,"../helper/response-handler":16,"qs":83,"url-join":95}],4:[function(require,module,exports){
 var toString = Object.prototype.toString;
 
 function attribute(o, attr, type, text) {
@@ -1478,7 +1478,7 @@ PopupHandler.prototype.load = function(url, relayUrl, options, cb) {
 
 module.exports = PopupHandler;
 
-},{"./object":10,"./window":24,"qs":74,"winchan":89}],14:[function(require,module,exports){
+},{"./object":10,"./window":24,"qs":83,"winchan":100}],14:[function(require,module,exports){
 var windowHelper = require('./window');
 
 function randomString(length) {
@@ -1623,7 +1623,7 @@ RequestBuilder.prototype.patch = function(url, options) {
 
 module.exports = RequestBuilder;
 
-},{"../version":27,"./base64_url":5,"superagent":79}],16:[function(require,module,exports){
+},{"../version":27,"./base64_url":5,"superagent":90}],16:[function(require,module,exports){
 var error = require('./error');
 var objectHelper = require('./object');
 
@@ -2028,7 +2028,7 @@ Management.prototype.linkUser = function(userId, secondaryUserToken, cb) {
 
 module.exports = Management;
 
-},{"../helper/assert":4,"../helper/request-builder":15,"../helper/response-handler":16,"url-join":84}],27:[function(require,module,exports){
+},{"../helper/assert":4,"../helper/request-builder":15,"../helper/response-handler":16,"url-join":95}],27:[function(require,module,exports){
 module.exports = { raw: '9.0.2' };
 
 },{}],28:[function(require,module,exports){
@@ -2163,7 +2163,7 @@ CrossOriginAuthentication.prototype.callback = function() {
 
 module.exports = CrossOriginAuthentication;
 
-},{"../helper/object":10,"../helper/request-builder":15,"../helper/window":24,"./web-message-handler":34,"url-join":84}],29:[function(require,module,exports){
+},{"../helper/object":10,"../helper/request-builder":15,"../helper/window":24,"./web-message-handler":34,"url-join":95}],29:[function(require,module,exports){
 var IdTokenVerifier = require('idtoken-verifier');
 
 var assert = require('../helper/assert');
@@ -2839,7 +2839,7 @@ WebAuth.prototype.passwordlessVerify = function(options, cb) {
 
 module.exports = WebAuth;
 
-},{"../authentication":2,"../helper/assert":4,"../helper/error":7,"../helper/object":10,"../helper/plugins":12,"../helper/ssodata":17,"../helper/window":24,"./cross-origin-authentication":28,"./popup":30,"./redirect":31,"./silent-authentication-handler":32,"./transaction-manager":33,"./web-message-handler":34,"idtoken-verifier":69,"qs":74}],30:[function(require,module,exports){
+},{"../authentication":2,"../helper/assert":4,"../helper/error":7,"../helper/object":10,"../helper/plugins":12,"../helper/ssodata":17,"../helper/window":24,"./cross-origin-authentication":28,"./popup":30,"./redirect":31,"./silent-authentication-handler":32,"./transaction-manager":33,"./web-message-handler":34,"idtoken-verifier":72,"qs":83}],30:[function(require,module,exports){
 var urljoin = require('url-join');
 
 var urlHelper = require('../helper/url');
@@ -3117,7 +3117,7 @@ Popup.prototype.signupAndLogin = function(options, cb) {
 
 module.exports = Popup;
 
-},{"../helper/assert":4,"../helper/object":10,"../helper/popup-handler":13,"../helper/response-handler":16,"../helper/url":22,"../helper/warn":23,"../helper/window":24,"./cross-origin-authentication":28,"./transaction-manager":33,"url-join":84}],31:[function(require,module,exports){
+},{"../helper/assert":4,"../helper/object":10,"../helper/popup-handler":13,"../helper/response-handler":16,"../helper/url":22,"../helper/warn":23,"../helper/window":24,"./cross-origin-authentication":28,"./transaction-manager":33,"url-join":95}],31:[function(require,module,exports){
 var CrossOriginAuthentication = require('./cross-origin-authentication');
 var Warn = require('../helper/warn');
 
@@ -3562,7 +3562,7 @@ module.exports = function xhrAdapter(config) {
 };
 
 }).call(this,require('_process'))
-},{"../core/createError":43,"./../core/settle":46,"./../helpers/btoa":50,"./../helpers/buildURL":51,"./../helpers/cookies":53,"./../helpers/isURLSameOrigin":55,"./../helpers/parseHeaders":57,"./../utils":59,"_process":72}],37:[function(require,module,exports){
+},{"../core/createError":43,"./../core/settle":46,"./../helpers/btoa":50,"./../helpers/buildURL":51,"./../helpers/cookies":53,"./../helpers/isURLSameOrigin":55,"./../helpers/parseHeaders":57,"./../utils":59,"_process":81}],37:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -4115,7 +4115,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this,require('_process'))
-},{"./adapters/http":36,"./adapters/xhr":36,"./helpers/normalizeHeaderName":56,"./utils":59,"_process":72}],49:[function(require,module,exports){
+},{"./adapters/http":36,"./adapters/xhr":36,"./helpers/normalizeHeaderName":56,"./utils":59,"_process":81}],49:[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -4796,7 +4796,7 @@ module.exports = {
   trim: trim
 };
 
-},{"./helpers/bind":49,"is-buffer":70}],60:[function(require,module,exports){
+},{"./helpers/bind":49,"is-buffer":73}],60:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -4913,6 +4913,62 @@ function fromByteArray (uint8) {
 }
 
 },{}],61:[function(require,module,exports){
+'use strict';
+
+/**
+ * Module dependenices
+ */
+
+var isObject = require('is-plain-object');
+var clone = require('shallow-clone');
+var typeOf = require('kind-of');
+var forOwn = require('for-own');
+
+/**
+ * Recursively clone native types.
+ */
+
+function cloneDeep(val, instanceClone) {
+  switch (typeOf(val)) {
+    case 'object':
+      return cloneObjectDeep(val, instanceClone);
+    case 'array':
+      return cloneArrayDeep(val, instanceClone);
+    default: {
+      return clone(val);
+    }
+  }
+}
+
+function cloneObjectDeep(obj, instanceClone) {
+  if (isObject(obj) || (instanceClone === true && typeOf(obj) === 'object')) {
+    var res = {};
+    forOwn(obj, function(val, key) {
+      this[key] = cloneDeep(val, instanceClone);
+    }, res);
+    return res;
+  }
+  if (typeof instanceClone === 'function') {
+    return instanceClone(obj);
+  }
+  return obj;
+}
+
+function cloneArrayDeep(arr, instanceClone) {
+  var res = [];
+  for (var i = 0; i < arr.length; i++) {
+    res[i] = cloneDeep(arr[i], instanceClone);
+  }
+  return res;
+}
+
+/**
+ * Expose `cloneDeep`
+ */
+
+module.exports = cloneDeep;
+
+},{"for-own":66,"is-plain-object":74,"kind-of":77,"shallow-clone":87}],62:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -5077,7 +5133,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -5838,7 +5894,7 @@ Emitter.prototype.hasListeners = function(event){
 	return CryptoJS;
 
 }));
-},{}],63:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -6038,7 +6094,46 @@ Emitter.prototype.hasListeners = function(event){
 	return CryptoJS.SHA256;
 
 }));
-},{"./core":62}],64:[function(require,module,exports){
+},{"./core":63}],65:[function(require,module,exports){
+/*!
+ * for-in <https://github.com/jonschlinkert/for-in>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+module.exports = function forIn(obj, fn, thisArg) {
+  for (var key in obj) {
+    if (fn.call(thisArg, obj[key], key, obj) === false) {
+      break;
+    }
+  }
+};
+
+},{}],66:[function(require,module,exports){
+/*!
+ * for-own <https://github.com/jonschlinkert/for-own>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+var forIn = require('for-in');
+var hasOwn = Object.prototype.hasOwnProperty;
+
+module.exports = function forOwn(obj, fn, thisArg) {
+  forIn(obj, function(val, key) {
+    if (hasOwn.call(obj, key)) {
+      return fn.call(thisArg, obj[key], key, obj);
+    }
+  });
+};
+
+},{"for-in":65}],67:[function(require,module,exports){
 var base64 = require('base64-js');
 
 function padding(str) {
@@ -6111,7 +6206,7 @@ module.exports = {
   decodeToHEX: decodeToHEX
 };
 
-},{"base64-js":60}],65:[function(require,module,exports){
+},{"base64-js":60}],68:[function(require,module,exports){
 function DummyCache() {}
 
 DummyCache.prototype.get = function () {
@@ -6127,7 +6222,7 @@ DummyCache.prototype.set = function () {
 
 module.exports = DummyCache;
 
-},{}],66:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 function ConfigurationError(message) {
   this.name = 'ConfigurationError';
   this.message = (message || '');
@@ -6145,7 +6240,7 @@ module.exports = {
   TokenValidationError: TokenValidationError
 };
 
-},{}],67:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 var urljoin = require('url-join');
 var base64 = require('./base64');
 var request = require('superagent');
@@ -6191,7 +6286,7 @@ module.exports = {
   getJWKS: getJWKS
 };
 
-},{"./base64":64,"superagent":79,"url-join":84}],68:[function(require,module,exports){
+},{"./base64":67,"superagent":90,"url-join":95}],71:[function(require,module,exports){
 /*
 Based on the work of Tom Wu
 http://www-cs-students.stanford.edu/~tjw/jsbn/
@@ -6270,7 +6365,7 @@ RSAVerifier.prototype.verify = function (msg, encsig) {
 
 module.exports = RSAVerifier;
 
-},{"crypto-js/sha256":63,"jsbn":71}],69:[function(require,module,exports){
+},{"crypto-js/sha256":64,"jsbn":76}],72:[function(require,module,exports){
 var RSAVerifier = require('./helpers/rsa-verifier');
 var base64 = require('./helpers/base64');
 var jwks = require('./helpers/jwks');
@@ -6520,7 +6615,7 @@ IdTokenVerifier.prototype.decode = function (token) {
 
 module.exports = IdTokenVerifier;
 
-},{"./helpers/base64":64,"./helpers/dummy-cache":65,"./helpers/error":66,"./helpers/jwks":67,"./helpers/rsa-verifier":68}],70:[function(require,module,exports){
+},{"./helpers/base64":67,"./helpers/dummy-cache":68,"./helpers/error":69,"./helpers/jwks":70,"./helpers/rsa-verifier":71}],73:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -6543,7 +6638,60 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],71:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
+/*!
+ * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+var isObject = require('isobject');
+
+function isObjectObject(o) {
+  return isObject(o) === true
+    && Object.prototype.toString.call(o) === '[object Object]';
+}
+
+module.exports = function isPlainObject(o) {
+  var ctor,prot;
+
+  if (isObjectObject(o) === false) return false;
+
+  // If has modified constructor
+  ctor = o.constructor;
+  if (typeof ctor !== 'function') return false;
+
+  // If has modified prototype
+  prot = ctor.prototype;
+  if (isObjectObject(prot) === false) return false;
+
+  // If constructor does not have an Object-specific method
+  if (prot.hasOwnProperty('isPrototypeOf') === false) {
+    return false;
+  }
+
+  // Most likely a plain Object
+  return true;
+};
+
+},{"isobject":75}],75:[function(require,module,exports){
+/*!
+ * isobject <https://github.com/jonschlinkert/isobject>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+module.exports = function isObject(val) {
+  return val != null && typeof val === 'object' && Array.isArray(val) === false;
+};
+
+},{}],76:[function(require,module,exports){
 (function(){
 
     // Copyright (c) 2005  Tom Wu
@@ -7902,7 +8050,419 @@ function isSlowBuffer (obj) {
 
 }).call(this);
 
-},{}],72:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
+var toString = Object.prototype.toString;
+
+module.exports = function kindOf(val) {
+  if (val === void 0) return 'undefined';
+  if (val === null) return 'null';
+
+  var type = typeof val;
+  if (type === 'boolean') return 'boolean';
+  if (type === 'string') return 'string';
+  if (type === 'number') return 'number';
+  if (type === 'symbol') return 'symbol';
+  if (type === 'function') {
+    return isGeneratorFn(val) ? 'generatorfunction' : 'function';
+  }
+
+  if (isArray(val)) return 'array';
+  if (isBuffer(val)) return 'buffer';
+  if (isArguments(val)) return 'arguments';
+  if (isDate(val)) return 'date';
+  if (isError(val)) return 'error';
+  if (isRegexp(val)) return 'regexp';
+
+  switch (ctorName(val)) {
+    case 'Symbol': return 'symbol';
+    case 'Promise': return 'promise';
+
+    // Set, Map, WeakSet, WeakMap
+    case 'WeakMap': return 'weakmap';
+    case 'WeakSet': return 'weakset';
+    case 'Map': return 'map';
+    case 'Set': return 'set';
+
+    // 8-bit typed arrays
+    case 'Int8Array': return 'int8array';
+    case 'Uint8Array': return 'uint8array';
+    case 'Uint8ClampedArray': return 'uint8clampedarray';
+
+    // 16-bit typed arrays
+    case 'Int16Array': return 'int16array';
+    case 'Uint16Array': return 'uint16array';
+
+    // 32-bit typed arrays
+    case 'Int32Array': return 'int32array';
+    case 'Uint32Array': return 'uint32array';
+    case 'Float32Array': return 'float32array';
+    case 'Float64Array': return 'float64array';
+  }
+
+  if (isGeneratorObj(val)) {
+    return 'generator';
+  }
+
+  // Non-plain objects
+  type = toString.call(val);
+  switch (type) {
+    case '[object Object]': return 'object';
+    // iterators
+    case '[object Map Iterator]': return 'mapiterator';
+    case '[object Set Iterator]': return 'setiterator';
+    case '[object String Iterator]': return 'stringiterator';
+    case '[object Array Iterator]': return 'arrayiterator';
+  }
+
+  // other
+  return type.slice(8, -1).toLowerCase().replace(/\s/g, '');
+};
+
+function ctorName(val) {
+  return val.constructor ? val.constructor.name : null;
+}
+
+function isArray(val) {
+  if (Array.isArray) return Array.isArray(val);
+  return val instanceof Array;
+}
+
+function isError(val) {
+  return val instanceof Error || (typeof val.message === 'string' && val.constructor && typeof val.constructor.stackTraceLimit === 'number');
+}
+
+function isDate(val) {
+  if (val instanceof Date) return true;
+  return typeof val.toDateString === 'function'
+    && typeof val.getDate === 'function'
+    && typeof val.setDate === 'function';
+}
+
+function isRegexp(val) {
+  if (val instanceof RegExp) return true;
+  return typeof val.flags === 'string'
+    && typeof val.ignoreCase === 'boolean'
+    && typeof val.multiline === 'boolean'
+    && typeof val.global === 'boolean';
+}
+
+function isGeneratorFn(name, val) {
+  return ctorName(name) === 'GeneratorFunction';
+}
+
+function isGeneratorObj(val) {
+  return typeof val.throw === 'function'
+    && typeof val.return === 'function'
+    && typeof val.next === 'function';
+}
+
+function isArguments(val) {
+  try {
+    if (typeof val.length === 'number' && typeof val.callee === 'function') {
+      return true;
+    }
+  } catch (err) {
+    if (err.message.indexOf('callee') !== -1) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * If you need to support Safari 5-7 (8-10 yr-old browser),
+ * take a look at https://github.com/feross/is-buffer
+ */
+
+function isBuffer(val) {
+  if (val.constructor && typeof val.constructor.isBuffer === 'function') {
+    return val.constructor.isBuffer(val);
+  }
+  return false;
+}
+
+},{}],78:[function(require,module,exports){
+'use strict';
+
+var isObject = require('is-extendable');
+var forIn = require('for-in');
+
+module.exports = function mixin(target, objects) {
+  if (!isObject(target)) {
+    throw new TypeError('expected the first argument to be an object');
+  }
+
+  var len = arguments.length;
+  var idx = 0;
+
+  while (++idx < len) {
+    copy(target, arguments[idx]);
+  }
+  return target;
+};
+
+/**
+ * copy properties from the source object to the
+ * target object. We don't use `Object.keys` here, since
+ * "mixin" also adds non-enumerable keys.
+ *
+ * @param  {*} `value`
+ * @param  {String} `key`
+ */
+
+function copy(target, obj) {
+  if (isObject(obj)) {
+    forIn(obj, function(value, key) {
+      target[key] = value;
+    });
+  }
+}
+
+},{"for-in":65,"is-extendable":79}],79:[function(require,module,exports){
+/*!
+ * is-extendable <https://github.com/jonschlinkert/is-extendable>
+ *
+ * Copyright (c) 2015-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+var isPlainObject = require('is-plain-object');
+
+module.exports = function isExtendable(val) {
+  return isPlainObject(val) || typeof val === 'function' || Array.isArray(val);
+};
+
+},{"is-plain-object":74}],80:[function(require,module,exports){
+(function (process){
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+// resolves . and .. elements in a path array with directory names there
+// must be no slashes, empty elements, or device names (c:\) in the array
+// (so also no leading and trailing slashes - it does not distinguish
+// relative and absolute paths)
+function normalizeArray(parts, allowAboveRoot) {
+  // if the path tries to go above the root, `up` ends up > 0
+  var up = 0;
+  for (var i = parts.length - 1; i >= 0; i--) {
+    var last = parts[i];
+    if (last === '.') {
+      parts.splice(i, 1);
+    } else if (last === '..') {
+      parts.splice(i, 1);
+      up++;
+    } else if (up) {
+      parts.splice(i, 1);
+      up--;
+    }
+  }
+
+  // if the path is allowed to go above the root, restore leading ..s
+  if (allowAboveRoot) {
+    for (; up--; up) {
+      parts.unshift('..');
+    }
+  }
+
+  return parts;
+}
+
+// Split a filename into [root, dir, basename, ext], unix version
+// 'root' is just a slash, or nothing.
+var splitPathRe =
+    /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/;
+var splitPath = function(filename) {
+  return splitPathRe.exec(filename).slice(1);
+};
+
+// path.resolve([from ...], to)
+// posix version
+exports.resolve = function() {
+  var resolvedPath = '',
+      resolvedAbsolute = false;
+
+  for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
+    var path = (i >= 0) ? arguments[i] : process.cwd();
+
+    // Skip empty and invalid entries
+    if (typeof path !== 'string') {
+      throw new TypeError('Arguments to path.resolve must be strings');
+    } else if (!path) {
+      continue;
+    }
+
+    resolvedPath = path + '/' + resolvedPath;
+    resolvedAbsolute = path.charAt(0) === '/';
+  }
+
+  // At this point the path should be resolved to a full absolute path, but
+  // handle relative paths to be safe (might happen when process.cwd() fails)
+
+  // Normalize the path
+  resolvedPath = normalizeArray(filter(resolvedPath.split('/'), function(p) {
+    return !!p;
+  }), !resolvedAbsolute).join('/');
+
+  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
+};
+
+// path.normalize(path)
+// posix version
+exports.normalize = function(path) {
+  var isAbsolute = exports.isAbsolute(path),
+      trailingSlash = substr(path, -1) === '/';
+
+  // Normalize the path
+  path = normalizeArray(filter(path.split('/'), function(p) {
+    return !!p;
+  }), !isAbsolute).join('/');
+
+  if (!path && !isAbsolute) {
+    path = '.';
+  }
+  if (path && trailingSlash) {
+    path += '/';
+  }
+
+  return (isAbsolute ? '/' : '') + path;
+};
+
+// posix version
+exports.isAbsolute = function(path) {
+  return path.charAt(0) === '/';
+};
+
+// posix version
+exports.join = function() {
+  var paths = Array.prototype.slice.call(arguments, 0);
+  return exports.normalize(filter(paths, function(p, index) {
+    if (typeof p !== 'string') {
+      throw new TypeError('Arguments to path.join must be strings');
+    }
+    return p;
+  }).join('/'));
+};
+
+
+// path.relative(from, to)
+// posix version
+exports.relative = function(from, to) {
+  from = exports.resolve(from).substr(1);
+  to = exports.resolve(to).substr(1);
+
+  function trim(arr) {
+    var start = 0;
+    for (; start < arr.length; start++) {
+      if (arr[start] !== '') break;
+    }
+
+    var end = arr.length - 1;
+    for (; end >= 0; end--) {
+      if (arr[end] !== '') break;
+    }
+
+    if (start > end) return [];
+    return arr.slice(start, end - start + 1);
+  }
+
+  var fromParts = trim(from.split('/'));
+  var toParts = trim(to.split('/'));
+
+  var length = Math.min(fromParts.length, toParts.length);
+  var samePartsLength = length;
+  for (var i = 0; i < length; i++) {
+    if (fromParts[i] !== toParts[i]) {
+      samePartsLength = i;
+      break;
+    }
+  }
+
+  var outputParts = [];
+  for (var i = samePartsLength; i < fromParts.length; i++) {
+    outputParts.push('..');
+  }
+
+  outputParts = outputParts.concat(toParts.slice(samePartsLength));
+
+  return outputParts.join('/');
+};
+
+exports.sep = '/';
+exports.delimiter = ':';
+
+exports.dirname = function(path) {
+  var result = splitPath(path),
+      root = result[0],
+      dir = result[1];
+
+  if (!root && !dir) {
+    // No dirname whatsoever
+    return '.';
+  }
+
+  if (dir) {
+    // It has a dirname, strip trailing slash
+    dir = dir.substr(0, dir.length - 1);
+  }
+
+  return root + dir;
+};
+
+
+exports.basename = function(path, ext) {
+  var f = splitPath(path)[2];
+  // TODO: make this comparison case-insensitive on windows?
+  if (ext && f.substr(-1 * ext.length) === ext) {
+    f = f.substr(0, f.length - ext.length);
+  }
+  return f;
+};
+
+
+exports.extname = function(path) {
+  return splitPath(path)[3];
+};
+
+function filter (xs, f) {
+    if (xs.filter) return xs.filter(f);
+    var res = [];
+    for (var i = 0; i < xs.length; i++) {
+        if (f(xs[i], i, xs)) res.push(xs[i]);
+    }
+    return res;
+}
+
+// String.prototype.substr - negative index don't work in IE8
+var substr = 'ab'.substr(-1) === 'b'
+    ? function (str, start, len) { return str.substr(start, len) }
+    : function (str, start, len) {
+        if (start < 0) start = str.length + start;
+        return str.substr(start, len);
+    }
+;
+
+}).call(this,require('_process'))
+},{"_process":81}],81:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -8088,7 +8648,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],73:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 'use strict';
 
 var replace = String.prototype.replace;
@@ -8108,7 +8668,7 @@ module.exports = {
     RFC3986: 'RFC3986'
 };
 
-},{}],74:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 'use strict';
 
 var stringify = require('./stringify');
@@ -8121,7 +8681,7 @@ module.exports = {
     stringify: stringify
 };
 
-},{"./formats":73,"./parse":75,"./stringify":76}],75:[function(require,module,exports){
+},{"./formats":82,"./parse":84,"./stringify":85}],84:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -8297,7 +8857,7 @@ module.exports = function (str, opts) {
     return utils.compact(obj);
 };
 
-},{"./utils":77}],76:[function(require,module,exports){
+},{"./utils":86}],85:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -8509,7 +9069,7 @@ module.exports = function (object, opts) {
     return joined.length > 0 ? prefix + joined : '';
 };
 
-},{"./formats":73,"./utils":77}],77:[function(require,module,exports){
+},{"./formats":82,"./utils":86}],86:[function(require,module,exports){
 'use strict';
 
 var has = Object.prototype.hasOwnProperty;
@@ -8713,7 +9273,76 @@ exports.isBuffer = function isBuffer(obj) {
     return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
 };
 
-},{}],78:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
+/*!
+ * shallow-clone <https://github.com/jonschlinkert/shallow-clone>
+ *
+ * Copyright (c) 2015-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+var isObject = require('is-extendable');
+var mixin = require('mixin-object');
+var typeOf = require('kind-of');
+
+/**
+ * Shallow copy an object, array or primitive.
+ *
+ * @param  {any} `val`
+ * @return {any}
+ */
+
+function clone(val) {
+  var type = typeOf(val);
+  if (clone.hasOwnProperty(type)) {
+    return clone[type](val);
+  }
+  return val;
+}
+
+clone.array = function cloneArray(arr) {
+  return arr.slice();
+};
+
+clone.date = function cloneDate(date) {
+  return new Date(+date);
+};
+
+clone.object = function cloneObject(obj) {
+  if (isObject(obj)) {
+    return mixin({}, obj);
+  } else {
+    return obj;
+  }
+};
+
+clone.map = function cloneMap(val) {
+  return new Map(val);
+};
+
+clone.regexp = function cloneRegExp(re) {
+  var flags = '';
+  flags += re.multiline ? 'm' : '';
+  flags += re.global ? 'g' : '';
+  flags += re.ignoreCase ? 'i' : '';
+  return new RegExp(re.source, flags);
+};
+
+clone.set = function cloneSet(val) {
+  return new Set(val);
+};
+
+/**
+ * Expose `clone`
+ */
+
+module.exports = clone;
+
+},{"is-extendable":88,"kind-of":77,"mixin-object":78}],88:[function(require,module,exports){
+arguments[4][79][0].apply(exports,arguments)
+},{"dup":79,"is-plain-object":74}],89:[function(require,module,exports){
 function Agent() {
   this._defaults = [];
 }
@@ -8735,7 +9364,7 @@ Agent.prototype._setDefaults = function(req) {
 
 module.exports = Agent;
 
-},{}],79:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 /**
  * Root reference for iframes.
  */
@@ -9657,7 +10286,7 @@ request.put = function(url, data, fn) {
   return req;
 };
 
-},{"./agent-base":78,"./is-object":80,"./request-base":81,"./response-base":82,"component-emitter":61}],80:[function(require,module,exports){
+},{"./agent-base":89,"./is-object":91,"./request-base":92,"./response-base":93,"component-emitter":62}],91:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9674,7 +10303,7 @@ function isObject(obj) {
 
 module.exports = isObject;
 
-},{}],81:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10370,7 +10999,7 @@ RequestBase.prototype._setTimeouts = function() {
   }
 };
 
-},{"./is-object":80}],82:[function(require,module,exports){
+},{"./is-object":91}],93:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10506,7 +11135,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
     this.notFound = 404 == status;
 };
 
-},{"./utils":83}],83:[function(require,module,exports){
+},{"./utils":94}],94:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10579,7 +11208,7 @@ exports.cleanHeader = function(header, changesOrigin){
   return header;
 };
 
-},{}],84:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 (function (name, context, definition) {
   if (typeof module !== 'undefined' && module.exports) module.exports = definition();
   else if (typeof define === 'function' && define.amd) define(definition);
@@ -10619,7 +11248,7 @@ exports.cleanHeader = function(header, changesOrigin){
 
 });
 
-},{}],85:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 var Vue // late bind
 var version
 var map = (window.__VUE_HOT_MAP__ = Object.create(null))
@@ -10849,7 +11478,7 @@ exports.reload = tryWrap(function (id, options) {
   })
 })
 
-},{}],86:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 (function (process){
 /**
   * vue-router v3.0.1
@@ -13478,7 +14107,7 @@ if (inBrowser && window.Vue) {
 module.exports = VueRouter;
 
 }).call(this,require('_process'))
-},{"_process":72}],87:[function(require,module,exports){
+},{"_process":81}],98:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v2.5.13
@@ -21405,7 +22034,7 @@ Vue$3.nextTick(function () {
 module.exports = Vue$3;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":72}],88:[function(require,module,exports){
+},{"_process":81}],99:[function(require,module,exports){
 (function (process){
 /**
  * vuex v3.0.1
@@ -22341,7 +22970,7 @@ var index = {
 module.exports = index;
 
 }).call(this,require('_process'))
-},{"_process":72}],89:[function(require,module,exports){
+},{"_process":81}],100:[function(require,module,exports){
 var WinChan = (function() {
   var RELAY_FRAME_NAME = "__winchan_relay_frame";
   var CLOSE_CMD = "die";
@@ -22656,7 +23285,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = WinChan;
 }
 
-},{}],90:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -22700,7 +23329,7 @@ var AuthService = function () {
 
 exports.default = new AuthService();
 
-},{"auth0-js":25}],91:[function(require,module,exports){
+},{"auth0-js":25}],102:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -22716,7 +23345,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = {
 	mounted: function mounted() {
-		var accessTokenString = _budgieutil2.default.extractHashParam(this.$route.params, 'access_token');
+		var accessTokenString = _budgieutil2.default.extractHashParam(this.$route.params, 'access_token') || window.sessionStorage.getItem('userToken') || '';
 
 		if (accessTokenString) {
 			this.$store.dispatch('validateToken', accessTokenString);
@@ -22739,7 +23368,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-f9cc4d64", __vue__options__)
   }
 })()}
-},{"../util/budgieutil":100,"vue":87,"vue-hot-reload-api":85}],92:[function(require,module,exports){
+},{"../util/budgieutil":111,"vue":98,"vue-hot-reload-api":96}],103:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -22755,7 +23384,7 @@ exports.default = {
 
 	methods: {
 		addButton_onClick: function addButton_onClick(e) {
-			this.$store.commit('addCategory', this.buildCategoryFromForm());
+			this.$store.dispatch('addCategory', this.buildCategoryFromForm());
 			this.clearForm();
 			return false;
 		},
@@ -22785,7 +23414,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-f59c8956", __vue__options__)
   }
 })()}
-},{"vue":87,"vue-hot-reload-api":85}],93:[function(require,module,exports){
+},{"vue":98,"vue-hot-reload-api":96}],104:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -22811,7 +23440,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-c20c0d7c", __vue__options__)
   }
 })()}
-},{"vue":87,"vue-hot-reload-api":85}],94:[function(require,module,exports){
+},{"vue":98,"vue-hot-reload-api":96}],105:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -22844,7 +23473,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('h1',{staticClass:"title"},[_vm._v("Your Categories")]),_vm._v(" "),_c('ul',_vm._l((_vm.categories),function(c){return _c('li',[_c('CategoryItem',{attrs:{"item":c}})],1)})),_vm._v(" "),_c('AddCategoryForm')],1)}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('h1',{staticClass:"title"},[_vm._v("Your Categories")]),_vm._v(" "),_c('ul',_vm._l((_vm.categories),function(c){return _c('li',{key:c.id},[_c('CategoryItem',{attrs:{"item":c}})],1)})),_vm._v(" "),_c('AddCategoryForm')],1)}
 __vue__options__.staticRenderFns = []
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -22856,7 +23485,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-e7f67a84", __vue__options__)
   }
 })()}
-},{"./add_category_form.vue":92,"./category_item.vue":93,"vue":87,"vue-hot-reload-api":85}],95:[function(require,module,exports){
+},{"./add_category_form.vue":103,"./category_item.vue":104,"vue":98,"vue-hot-reload-api":96}],106:[function(require,module,exports){
 ;(function(){
 "use strict";
 })()
@@ -22875,7 +23504,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-6bda1b91", __vue__options__)
   }
 })()}
-},{"vue":87,"vue-hot-reload-api":85}],96:[function(require,module,exports){
+},{"vue":98,"vue-hot-reload-api":96}],107:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -22920,7 +23549,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-1ebb0d73", __vue__options__)
   }
 })()}
-},{"../auth/authService":90,"vue":87,"vue-hot-reload-api":85}],97:[function(require,module,exports){
+},{"../auth/authService":101,"vue":98,"vue-hot-reload-api":96}],108:[function(require,module,exports){
 ;(function(){
 'use strict';
 
@@ -22955,7 +23584,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-5f3f999c", __vue__options__)
   }
 })()}
-},{"./navbar.vue":96,"vue":87,"vue-hot-reload-api":85}],98:[function(require,module,exports){
+},{"./navbar.vue":107,"vue":98,"vue-hot-reload-api":96}],109:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -23016,7 +23645,7 @@ new _vue2.default({
 	store: _store2.default
 });
 
-},{"./components/app.vue":91,"./components/category_page/category_page.vue":94,"./components/homepage.vue":95,"./components/page.vue":97,"./store":99,"vue":87,"vue-router":86}],99:[function(require,module,exports){
+},{"./components/app.vue":102,"./components/category_page/category_page.vue":105,"./components/homepage.vue":106,"./components/page.vue":108,"./store":110,"vue":98,"vue-router":97}],110:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -23035,6 +23664,12 @@ var _budgieutil = require('../util/budgieutil');
 
 var _budgieutil2 = _interopRequireDefault(_budgieutil);
 
+var _cloneDeep = require('clone-deep');
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
+var _path = require('path');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.use(_vuex2.default);
@@ -23050,20 +23685,19 @@ exports.default = new _vuex2.default.Store({
 		}
 	},
 	mutations: {
-		/*setAppName (state, name) {
-  	state.appName = name;
-  },
-  updateCategories(state, categoryList) {
-  	state.user.categories.splice.apply(state.user.categories, [0, state.user.categories.length].concat(categoryList))
-  },
-  addCategory(state, category) {
-  	state.user.categories.push(category);
-  }*/
 		updateUserToken: function updateUserToken(state, token) {
 			state.userToken = token;
+			window.sessionStorage.setItem('userToken', token);
 		},
 		saveUser: function saveUser(state, user) {
-			state.user = user;
+			state.user.name = user.name;
+			state.user.id = user.budgieId;
+			state.user.categories = user.categories.map(function (cat) {
+				return {
+					id: cat._id,
+					name: cat.name
+				};
+			});
 		},
 		updateLoggedIn: function updateLoggedIn(state, value) {
 			state.isLoggedIn = value;
@@ -23078,9 +23712,14 @@ exports.default = new _vuex2.default.Store({
 	},
 	actions: {
 		addCategory: function addCategory(context, category) {
-			context.commit('addCategory', category);
-
-			return _budgieutil2.default.ajaxRequest('http://localhost:3000/api/user/category', context.state.userToken, 'post', category).catch(function (err) {
+			return _budgieutil2.default.ajaxRequest('http://localhost:3000/api/user/category', context.state.userToken, 'post', {
+				category: category
+			}).then(function (response) {
+				context.commit('addCategory', {
+					id: response.data._id,
+					name: response.data.name
+				});
+			}).catch(function (err) {
 				alert('error!');
 			});
 		},
@@ -23095,13 +23734,17 @@ exports.default = new _vuex2.default.Store({
 					context.commit('updateUserToken', token);
 					context.commit('updateLoggedIn', true);
 					context.dispatch('loadUser');
+				} else {
+					window.sessionStorage.setItem('userToken', '');
 				}
+			}).catch(function (err) {
+				window.sessionStorage.setItem('userToken', '');
 			});
 		}
 	}
 });
 
-},{"../util/budgieutil":100,"vue":87,"vuex":88}],100:[function(require,module,exports){
+},{"../util/budgieutil":111,"clone-deep":61,"path":80,"vue":98,"vuex":99}],111:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -23150,4 +23793,4 @@ var util = {
 
 exports.default = util;
 
-},{"axios":35}]},{},[98]);
+},{"axios":35}]},{},[109]);

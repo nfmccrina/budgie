@@ -1,0 +1,25 @@
+[2018-01-20T12:05:25.879] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
+[2018-01-20T12:10:22.390] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
+[2018-01-20T12:10:35.730] [DEBUG] debugLog - UserController.addUser invoked
+[2018-01-20T12:10:35.757] [DEBUG] debugLog - added user { categories: [],
+  _id: 5a63861b730f9e15278dd578,
+  name: 'Nathan McCrina',
+  budgieId: '103872002142061448783',
+  __v: 0 }
+[2018-01-20T12:13:59.495] [DEBUG] debugLog - UserController.addCategory invoked
+[2018-01-20T12:14:33.003] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
+[2018-01-20T12:14:58.351] [DEBUG] debugLog - UserController.addCategory invoked
+[2018-01-20T12:14:58.372] [DEBUG] debugLog - error: TypeError: user.categories.findOneAndUpdate is not a function
+    at User.findOne.then (/home/nfm/src/budgie/src/server/services/userService.js:56:47)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-01-20T12:41:47.785] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
+[2018-01-20T12:41:56.134] [DEBUG] debugLog - UserController.addCategory invoked
+[2018-01-20T12:49:55.482] [DEBUG] debugLog - UserController.addUser invoked
+[2018-01-20T12:51:40.484] [DEBUG] debugLog - mongodb connection URL is "mongodb://budgieuser:budgie1!@localhost:27017/budgie"
+[2018-01-20T12:52:04.322] [DEBUG] debugLog - UserController.addUser invoked
+[2018-01-20T13:13:16.661] [DEBUG] debugLog - UserController.addUser invoked
+[2018-01-20T13:13:22.389] [DEBUG] debugLog - UserController.addUser invoked
+[2018-01-20T13:13:55.146] [DEBUG] debugLog - UserController.addCategory invoked
+[2018-01-20T13:13:55.374] [DEBUG] debugLog - UserController.addUser invoked
+[2018-01-20T13:17:47.728] [DEBUG] debugLog - UserController.addUser invoked

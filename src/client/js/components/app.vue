@@ -7,7 +7,7 @@
 	
 	export default {
 		mounted () {
-			var accessTokenString = util.extractHashParam(this.$route.params, 'access_token')
+			var accessTokenString = util.extractHashParam(this.$route.params, 'access_token') || window.sessionStorage.getItem('userToken') || ''
 
 			if (accessTokenString) {
 				this.$store.dispatch('validateToken', accessTokenString)

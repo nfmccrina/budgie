@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import util from '../util/budgieutil'
+import deepClone from 'clone-deep'
+import { win32 } from 'path';
 
 Vue.use(Vuex)
 
@@ -15,20 +17,19 @@ export default new Vuex.Store({
 		}
 	},
 	mutations: {
-		/*setAppName (state, name) {
-			state.appName = name;
-		},
-		updateCategories(state, categoryList) {
-			state.user.categories.splice.apply(state.user.categories, [0, state.user.categories.length].concat(categoryList))
-		},
-		addCategory(state, category) {
-			state.user.categories.push(category);
-		}*/
 		updateUserToken (state, token) {
 			state.userToken = token
+			window.sessionStorage.setItem('userToken', token)
 		},
 		saveUser (state, user) {
-			state.user = user
+			state.user.name = user.name
+			state.user.id = user.budgieId
+			state.user.categories = user.categories.map((cat) => {
+				return {
+					id: cat._id,
+					name: cat.name
+				}
+			})
 		},
 		updateLoggedIn (state, value) {
 			state.isLoggedIn = value
@@ -43,9 +44,15 @@ export default new Vuex.Store({
 	},
 	actions: {
 		addCategory (context, category) {
-			context.commit('addCategory', category)
-
-			return util.ajaxRequest('http://localhost:3000/api/user/category', context.state.userToken, 'post', category)
+			return util.ajaxRequest('http://localhost:3000/api/user/category', context.state.userToken, 'post', {
+				category: category
+			})
+				.then((response) => {
+					context.commit('addCategory', {
+						id: response.data._id,
+						name: response.data.name
+					})
+				})
 				.catch((err) => {
 					alert('error!')
 				})
@@ -62,7 +69,12 @@ export default new Vuex.Store({
 						context.commit('updateUserToken', token)
 						context.commit('updateLoggedIn', true)
 						context.dispatch('loadUser')
+					} else {
+						window.sessionStorage.setItem('userToken', '')
 					}
+				})
+				.catch((err) => {
+					window.sessionStorage.setItem('userToken', '')
 				})
 		}
 	}

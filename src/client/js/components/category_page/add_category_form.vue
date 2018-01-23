@@ -26,7 +26,7 @@
 		},
 		methods: {
 			addButton_onClick: function (e) {
-				this.$store.commit('addCategory', this.buildCategoryFromForm())
+				this.$store.dispatch('addCategory', this.buildCategoryFromForm())
 				this.clearForm()
 				return false
 			},

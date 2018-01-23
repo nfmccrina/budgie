@@ -27,26 +27,38 @@ UserService.prototype.getUser = function (name, id) {
             if (!exists) {
                 return Promise.resolve(new User({
                     name: name,
-                    budgieId: id
+                    budgieId: id,
+                    categories: []
                 }))
                 .then((u) => u.save())
                 .then((createdUser) => {
                     this.logger.debug('added user ' + util.inspect(createdUser));
-                    return {
-                        budgieId: createdUser.budgieId,
-                        name: createdUser.name
-                    }
+                    return createdUser;
                 });
             } else {
-                return User.findOne({ budgieId: id })
-                    .then((user) => {
-                        return {
-                            budgieId: user.budgieId,
-                            name: user.name
-                        }
-                    });
+                return User.findOne({ budgieId: id });
             }
         });
 };
+
+UserService.prototype.addCategory = function (userId, name) {
+    return User.findOne({ budgieId: userId})
+        .then((user) => {
+            if (user.categories.every((cat) => {
+                return cat.name !== name;
+            })) {
+                user.categories.push({
+                    name: name
+                });
+                
+                return user.save();
+            } else {
+                return user;
+            }
+        })
+        .then((user) => user.categories.find((cat) => {
+            return cat.name === name;
+        }));
+}
 
 module.exports = UserService;
